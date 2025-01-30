@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>OTP Authentication</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      margin: 50px;
+    }
+
+    input,
+    button {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Phone OTP Authentication</h2>
+
+  <input type="tel" id="phoneNumber" placeholder="Enter Phone Number (+91XXXXXXXXXX)">
+  <div id="recaptcha-container"></div>
+  <button id="sendOtpButton">Send OTP</button>
+
+  <div id="otp-section" style="display: none;">
+    <input type="text" id="otpCode" placeholder="Enter OTP">
+    <button id="verifyOtpButton">Verify OTP</button>
+  </div>
+
+  <script type="module">
+    // ✅ Import required Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    // ✅ Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcBnwY8BPULeqngaHnuUnyNntZU1UQDA0",
+      authDomain: "otp-validation-84c20.firebaseapp.com",
+      projectId: "otp-validation-84c20",
+      storageBucket: "otp-validation-84c20.appspot.com",  // 🔹 Fixed incorrect storage bucket
+      messagingSenderId: "836463670412",
+      appId: "1:836463670412:web:252be4cce639f07af7b7a9"
+    };
+
+    // ✅ Initialize Firebase & Authentication
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    auth.useDeviceLanguage(); // 🔹 Set language based on device
+
+    // ✅ Setup reCAPTCHA
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+      'size': 'normal',
+      'callback': (response) => {
+        console.log("reCAPTCHA verified");
+      }
+    });
+
+    // ✅ Function to Send OTP
+    document.getElementById("sendOtpButton").addEventListener("click", () => {
+      let phoneNumber = document.getElementById("phoneNumber").value;
+      
+      signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier)
+        .then((confirmationResult) => {
+          window.confirmationResult = confirmationResult;
+          alert("OTP Sent Successfully!");
+          document.getElementById("otp-section").style.display = "block";
+        })
+        .catch((error) => {
+          alert("Error sending OTP: " + error.message);
+        });
+    });
+
+    // ✅ Function to Verify OTP
+    document.getElementById("verifyOtpButton").addEventListener("click", () => {
+      let otpCode = document.getElementById("otpCode").value;
+      
+      window.confirmationResult.confirm(otpCode)
+        .then((result) => {
+          alert("OTP Verified Successfully! Welcome, " + result.user.phoneNumber);
+        })
+        .catch((error) => {
+          alert("Invalid OTP! Please try again.");
+        });
+    });
+
+  </script>
+</body>
+
+</html>

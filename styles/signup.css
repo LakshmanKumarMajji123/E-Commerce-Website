@@ -1,0 +1,85 @@
+.signup {
+  margin: 0px 800px;
+}
+
+.signUpImage {
+  padding: 0px 99px;
+}
+
+.signUpForm {
+  padding: 0px;
+}
+
+#form {
+  background-color: #ffffff;
+  border: 2px solid lightgray;
+  border-radius: 20px;
+  width: 500px;
+}
+
+h3 {
+  font-size: 33px;
+  text-align: center;
+}
+
+.labels {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+.name,
+.phonenumber,
+.email,
+.password {
+  /* margin: 0px 150px; */
+  padding: 0px 30px;
+}
+
+.submit {
+  padding: 20px 180px;
+}
+
+#submit {
+  width: 150px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 25px;
+  background-color: rgb(124, 225, 124);
+  font-weight: 200;
+  border:none;
+}
+#submit:hover{
+  cursor: pointer;
+}
+
+.inputFields {
+  padding: 10px;
+  width: 400px;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  font-size: 20px;
+}
+
+.myntraSignUpLogo2 {
+  height: 300px;
+}
+
+.account {
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 0px 30px;
+}
+
+.login {
+  color: rgb(0, 200, 255);
+  font-size: 20px;
+  font-weight: 100;
+  text-decoration: underline;
+}
+.login:hover{
+  cursor: pointer;
+  color: red;
+}

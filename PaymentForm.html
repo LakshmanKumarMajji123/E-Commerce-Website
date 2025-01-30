@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaymentForm</title>
+
+  <style>
+    .form {
+      /* height: 400px; */
+      background-color: white;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      /* padding: 10px; */
+      margin: 150px 700px;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 40px;
+      padding: 4px 0px;
+    }
+
+    .name,
+    .phonenumber,
+    .otp {
+      /* margin: 0px 360px; */
+      padding: 2px 160px;
+      font-size: 25px;
+    }
+
+    .otp {
+      margin-bottom: 50px;
+    }
+
+    .labels {
+      padding: 0px;
+    }
+
+    .phonenumber {
+      font-size: 25px;
+    }
+
+    .inputFields:focus {
+      outline: none;
+    }
+
+    .inputFields {
+      width: 400px;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-size: 20px;
+      border-color: #05aae3;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="form">
+
+    <h3>Payment Form</h3>
+    <div class="name">
+      <p class="labels">Your name</p>
+      <input type="text" class="inputFields" id="Name" placeholder="First and last name">
+    </div>
+    <div class="phonenumber">
+      <p class="labels">Mobile number</p>
+      <input type="tel" class="inputFields" id="MobileNumber" placeholder="Mobile number">
+      <!--pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"-->
+    </div>
+
+    <div class="otp">
+      <p class="labels">Send OTP</p>
+      <input type="tel" class="inputFields" id="OTP" placeholder="Enter OTP">
+    </div>
+
+  </div>
+
+</body>
+
+</html>

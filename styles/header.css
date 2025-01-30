@@ -1,0 +1,81 @@
+ /*-----------------Navbar-------------------------------*/
+ .navbar {
+   height: 150px;
+   background-color: #ffffff;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   box-sizing: var(--box-shadow);
+   border: 3px solid #ffffff;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   /* position: relative; */
+ }
+
+ .shopping {
+   margin: 0px 100px;
+ }
+
+ .shopNowLogo {
+   height: 140px;
+ }
+
+ .shopnowLogo:hover {
+   cursor: pointer;
+ }
+
+ #fields {
+   display: flex;
+   flex-direction: row;
+   margin: 0px 80px;
+ }
+
+ .list {
+   list-style: none;
+   margin: 0px 45px;
+   font-size: 30px;
+   color: black;
+ }
+
+ .list a {
+   text-decoration: none;
+   color: black;
+ }
+
+ .list a:visited {
+   text-decoration: none;
+   /* Removes underline after visiting */
+   color: black;
+   /* Ensures the color remains the same */
+ }
+
+ .list a:hover,
+ .list a:visited:hover {
+   color: red;
+   /* Ensure hover effect applies to visited link */
+ }
+
+ .cartProuducts {
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+   font-size: 30px;
+   /* position: relative; */
+ }
+
+ .cartProuducts:hover {
+   cursor: pointer;
+ }
+
+ .cartLogo {
+   height: 70px;
+ }
+
+ .cartCount {
+   font-size: 30px;
+   color: orange;
+   font-weight: bold;
+ }

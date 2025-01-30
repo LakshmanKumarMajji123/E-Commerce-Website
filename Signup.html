@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="./styles/signup.css">
+</head>
+
+<body>
+  <div class="signup">
+    <!-- <img src="./images/Myntra-Logo.png" alt="signUpLogo" class="myntraSignUpLogo"> -->
+    <div class="signUpImage">
+      <img src="./images/pngtree-register-now-banner-design-transparent-background-png-image_6535781.png"
+        alt="signUpLogo2" class="myntraSignupLogo2">
+    </div>
+
+    <div class="signUpForm">
+      <form action="" id="form">
+        <h3>Create Account</h3>
+        <div class="name">
+          <p class="labels">Your name</p>
+          <input type="text" class="inputFields" id="Name" placeholder="First and last name">
+        </div>
+        <div class="phonenumber">
+          <p class="labels">Mobile number</p>
+          <input type="tel" class="inputFields" id="MobileNumber" placeholder="Mobile number">
+          <!--pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"-->
+        </div>
+        <div class="email">
+          <p class="labels">Email*</p>
+          <input type="email" class="inputFields" id="Email" placeholder="Email">
+        </div>
+        <div class="password">
+          <p class="labels">Password</p>
+          <input type="password" class="inputFields" id="Password" placeholder="Atleast 6 charcters">
+        </div>
+        <div class="submit">
+          <input type="submit" id="submit" class="btn btn-primary value=" submit" />
+        </div>
+
+        <p class="account">Already have an Account?<span class="login">Login</span></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+    document.getElementById("form").addEventListener("submit", formDetails);
+
+    //let signupArray = [];
+    let signupArray = JSON.parse(localStorage.getItem("signupRecords")) || [];
+    /* if empty then show empty array or else show records*/
+
+    function formDetails(event) {
+
+      event.preventDefault();
+
+      //let form = document.getElementById("form");
+
+      let formObj = {
+
+        userName: form.Name.value,
+        userMobileNumber: form.MobileNumber.value,
+        userEmail: form.Email.value,
+        userPassword: form.Password.value
+      };
+
+      signupArray.push(formObj);
+      console.log(signupArray);
+
+      signupData(signupArray);
+
+      //console.log(signupArray);
+      form.reset();
+    }
+
+    function signupData(signupArray) {
+
+
+      localStorage.setItem("signupRecords", JSON.stringify(signupArray));
+
+      prompt("Welcome");
+     window.location.href = "index.html";
+
+      // let insideArray = [];
+
+      // signupArray.forEach((list, index) => {
+
+      //   if (index === 0) {
+      //     insideArray.push(list);
+      //     localStorage.setItem("signupRecords", JSON.stringify(insideArray));
+      //     // insideArray.push(list);
+      //     // localStorage.setItem("signupRecords", JSON.stringify(insideArray));
+      //   } else {
+
+      //     let listCaptured = list;
+
+      //     for (let i = 0; i < signupArray.length; i++) {
+
+      //       if (listCaptured.userMobileNumber === signupArray[i].userMobileNumber) {
+
+      //         let res = signupArray.splice(index, 1);
+      //         console.log("u are already signIn", res);
+      //         //window.location.href = "Login.html";
+      //       } else {
+      //         console.log("not matched ");
+      //       }
+      //     }
+      //     /*vachina list ni capture chesi arraylength tho loop */
+      //   }
+      // });
+
+    }
+
+
+  </script>
+</body>
+
+</html>

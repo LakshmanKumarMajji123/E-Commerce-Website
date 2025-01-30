@@ -1,0 +1,347 @@
+ /*-----------------Navbar-------------------------------*/
+ .navbar {
+   height: 150px;
+   background-color: #ffffff;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   box-sizing: var(--box-shadow);
+   border: 3px solid #ffffff;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   /* position: relative; */
+ }
+
+ .shopping {
+   margin: 0px 100px;
+ }
+
+ .shopnowLogo {
+   height: 140px;
+ }
+
+ .shopnowLogo:hover {
+   cursor: pointer;
+ }
+
+ #fields {
+   display: flex;
+   flex-direction: row;
+   margin: 0px 80px;
+ }
+
+ .list {
+   list-style: none;
+   margin: 0px 45px;
+   font-size: 30px;
+   color: black;
+ }
+
+ .list a {
+   text-decoration: none;
+   color: black;
+ }
+
+ .list a:visited {
+   text-decoration: none;
+   /* Removes underline after visiting */
+   color: black;
+   /* Ensures the color remains the same */
+ }
+
+ .list a:hover,
+ .list a:visited:hover {
+   color: red;
+   /* Ensure hover effect applies to visited link */
+ }
+
+ .cartProuducts {
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+   font-size: 30px;
+   /* position: relative; */
+ }
+
+ .cartProuducts:hover {
+   cursor: pointer;
+ }
+
+ .cartLogo {
+   height: 70px;
+ }
+
+ .cartCount {
+   font-size: 30px;
+   color: orange;
+   font-weight: bold;
+ }
+
+ /*--------------Products----------------------*/
+ .productsInfo {
+   margin: 150px 300px;
+   display: grid;
+   grid-template-columns: 300px 300px 300px;
+   column-gap: 300px;
+   /* position: absolute; */
+ }
+
+ .product {
+   width: 400px;
+   /* background-color: yellow; */
+   /* margin: 10px 10px; */
+   margin: 10px auto;
+ }
+
+ .productImg {
+   width: 400px;
+   padding: 0px;
+   /* margin: 0px 0px; */
+   background-color: whitesmoke;
+   border: 1px solid #ffffff;
+   border-radius: 5px;
+   box-sizing: var(--box-shadow);
+ }
+
+ .Image {
+   padding: 20px 60px;
+ }
+
+ .productContent {
+   width: 400px;
+   padding: 0px;
+   /* margin: 0px 3px; */
+   background-color: #ffffff;
+ }
+
+ .one,
+ .two,
+ .three {
+   margin: 20px 0px;
+   /* line-height: 35px; */
+ }
+
+ .productDetail {
+   font-size: 25px;
+   padding: 10px 10px;
+ }
+
+ .productBought {
+   font-size: 22px;
+   color: gray;
+   padding: 0px 10px;
+ }
+
+ .productPrice {
+   font-size: 22px;
+   padding: 0px 10px;
+ }
+
+ .price {
+   font-size: 28px;
+   font-weight: bold;
+   color: black;
+ }
+
+ .productFreeDelivery {
+   font-size: 22px;
+   padding: 0px 10px;
+ }
+
+ .productFastestDelivery {
+   font-size: 22px;
+   padding: 7px 10px;
+ }
+
+ .deliveryDate {
+   color: black;
+   font-weight: 800;
+ }
+
+ .buttons {
+   display: flex;
+   flex-direction: row;
+   margin: 0px 20px;
+ }
+
+ .buyNow {
+   margin: 10px 20px;
+   background-color: yellow;
+   color: black;
+   font-size: 20px;
+   font-weight: 600;
+   padding: 10px;
+   border-radius: 20px;
+   width: 120px;
+   text-align: center;
+ }
+
+ .buyNow:hover {
+   cursor: pointer;
+ }
+
+ /*-----show modal-------------------*/
+ .open-modal {
+   text-decoration: none;
+   color: black;
+ }
+
+ .Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+ /* Show Modal when targeted */
+ #open:target {
+   opacity: 1;
+   pointer-events: auto;
+   /* background-color: red; */
+ }
+
+.modalContent {
+  background-color: #ffffff;
+  width: 600px;
+  /* border: 2px solid gray; */
+  box-shadow: var(--box-shadow);
+  border-radius: 30px;
+  height: 760px;
+}
+
+.invoiceTimeDate {
+  /* background-color: Red; */
+  /* border: 1px solid #05aae3; */
+  border-bottom: 1px solid #05aae3;
+  margin: 40px 0px;
+}
+
+.Title {
+  padding: 8px 200px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.Time {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px 20px;
+}
+
+.itemInformation {
+  margin: 20px 50px;
+
+}
+
+.Details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 22px;
+
+}
+
+.productPrice {
+  font-weight: bold;
+}
+
+.productDiscount {
+  margin: 40px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid #05aae3;;
+}
+
+.discount {
+  padding: 30px 70px;
+  font-size: 22px;
+}
+
+.offer {
+  padding: 30px 0px;
+  padding-left:100px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.FinalAmmount {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #05aae3;
+  justify-content: space-around;
+}
+
+.total {
+  font-size: 30px;
+  padding: 20px 0px;
+ padding-left: 70px;
+}
+
+.totalPrice {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px 0px;
+  padding-left: 190px;
+  text-decoration: underline;
+  color: green;
+}
+
+.payment {
+  margin: 40px 180px;
+}
+
+.paymentButton {
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: bisque;
+  color: black;
+  text-align: center;
+  margin: 0px 1px;
+  cursor: pointer;
+
+}
+
+.close-button{
+  text-decoration: none;
+  background-color:black;
+  padding: 10px 15px;
+  border-radius: 60px;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  top: 3;
+  bottom: 880px;
+  left: 1340px;
+ }
+
+ .remove {
+   margin: 10px 10px;
+   background-color: red;
+   color: black;
+   font-size: 20px;
+   font-weight: 600;
+   padding: 10px;
+   border-radius: 20px;
+   width: 120px;
+   text-align: center;
+ }
+
+ .remove:hover {
+   cursor: pointer;
+ }

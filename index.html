@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce</title>
+  <link rel="stylesheet" href="./styles/header.css">
+
+  <style>
+    * {
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+      font-family: "Roboto", serif;
+      font-weight: 800;
+      font-style: normal;
+      margin: 0;
+    }
+
+    :root {
+      --box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    /* .signup {
+      margin: 0px 800px;
+      font-weight: 800;
+      font-size: 38px;
+    }
+    .signUpForm {
+  
+      margin:280px 800px;
+     
+    }
+
+    #form {
+      background-color: #ffffff;
+      border: 2px solid lightgray;
+      border-radius: 20px;
+      width: 500px;
+    }
+
+    h3 {
+      font-size: 38px;
+      text-align: center;
+      padding: 20px 0px;
+    }
+
+    .labels {
+      font-size: 25px;
+      color: black;
+      font-weight: bold;
+      padding: 10px 0px;
+    }
+
+    .name,
+    .phonenumber,
+    .email,
+    .password {
+   
+      padding: 20px 30px;
+    }
+
+    .submit {
+      padding: 20px 180px;
+    }
+
+    #submit {
+      width: 150px;
+      padding: 8px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 20px;
+      background-color: rgb(124, 225, 124);
+      font-weight: 200;
+    }
+
+    #submit:hover {
+      cursor: pointer;
+    }
+
+    .inputFields {
+      padding: 10px;
+      width: 400px;
+      border-radius: 5px;
+      box-shadow: var(--box-shadow);
+      font-size: 20px;
+    }
+    .account{
+      padding: 20px 20px;
+      font-size: 22px;
+    }
+    .login{
+      padding: 0px 10px;
+      color: blue;
+    }
+    .login:hover{
+      cursor: pointer;
+    } */
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="navbar">
+      <div class="shopping">
+        <a href="./index.html"><img src="./images/depositphotos_207138876-stock-photo-shop-now-isolated-premium-red.jpg"
+            alt="logoImg" class="shopNowLogo"></a>
+      </div>
+      <div id="fields">
+        <li class="list" id="productsPage"><a href="./Products.html" class="mens">Products</a></li>
+        <!-- <li class="list" id="productsPage"><a href="./Womens.html" class="Women's">Womens</a></li> -->
+        <li class="list" id="productsPage"><a href="./Login.html" class="Login">Login</a></li>
+        <li class="list" id="productsPage"><a href="./Signup.html" class="signup">Signup</a></li>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- <div class="signUpForm">
+
+    <form id="form">
+      <h3>Login Here</h3>
+      <div class="email">
+        <p class="labels">Email<span style="color:red; font-weight: bold; font-size: 35px;">*</span></p>
+        <input type="email" class="inputFields" name="Email" placeholder="Username or Email">
+      </div>
+      <div class="password">
+        <p class="labels">Password<span style="color:red; font-weight: bold; font-size: 35px;">*</span></p>
+        <input type="password" class="inputFields" name="Password" placeholder="Atleast 6 charcters">
+      </div>
+      <div class="submit">
+        <input type="submit" id="submit" class="btn btn-primary value=" Login" />
+      </div>
+
+      <p class="account">Forgot Password?<span class="login">Click here</span></p>
+    </form>
+  <h5></h5>
+  </div>  -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("productsPage").addEventListener("click", homePage);
+    });
+
+    let storedData = [];
+    console.log("this is stored record", storedData);
+
+    //this always put on the outside of the function
+    //let loginCheck = (localStorage.getItem("loginRecord")) ? JSON.parse(localStorage.getItem("loginRecord")) : [];
+    var Check = (localStorage.getItem("loginRecord"));
+    loginCheck = (Check) ? JSON.parse(localStorage.getItem("loginRecord")) : [];
+    console.log(loginCheck);
+
+    let Signup = JSON.parse(localStorage.getItem("signupRecords"));
+    console.log(Signup);
+
+    let navbar = document.getElementById("fields");
+
+    LoginCheck();
+
+    function LoginCheck() {
+
+      if (JSON.stringify(loginCheck) !== JSON.stringify(storedData)) {
+        console.log("You are login");
+        /* login, signup  -> remove
+          emil, logout   -> add
+        */
+        //Remove "Login & signup"
+        LoginSignUpRemove(navbar);
+
+        function LoginSignUpRemove(navbar) {
+
+          var removeItem = navbar.children;
+
+          for (let i = 0; i < removeItem.length; i++) {
+            //Remove "Login"
+            if (removeItem[i].innerText === "Login") {
+
+              let LoginRemove = navbar.removeChild(removeItem[i]);
+              console.log("removed Login from navbar....", LoginRemove);
+            }
+            //Remove SignUp
+            if (removeItem[i].innerText === "Signup") {
+
+              let SignupRemove = navbar.removeChild(removeItem[i]);
+              console.log("Removed  Signup from navbar......", SignupRemove);
+            }
+          }
+        }
+        //Add "userName"
+        var addEmail = document.createElement("li");
+        addEmail.setAttribute("class", "list");
+        addEmail.setAttribute("style", "cursor:pointer; list:hover{color: red;}");
+
+        addEmail.innerText = loginCheck.userEmail;
+
+        navbar.appendChild(addEmail); //appendChild only accepts one argument. Instead, use appendChild separately for both elements.
+
+        //Add "Logout" 
+        var addLogout = document.createElement("li");
+        addLogout.setAttribute("class", "list");
+        addLogout.setAttribute("style", "cursor:pointer;");
+
+        addLogout.innerText = "Logout";
+        navbar.appendChild(addLogout);
+
+        //when click on Logout record will be deleted in LS
+        addLogout.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          localStorage.removeItem("loginRecord");
+
+          var emptyArray = [];
+
+          localStorage.setItem("loginRecord", JSON.stringify(emptyArray));
+          location.reload();
+          /* 
+            emil, logout   -> remove
+            login, signup  -> add
+          */
+          var removeItem = navbar.children;
+
+          for (let i = 0; i < removeItem.length; i++) {
+
+            if (removeItem[i].innerText === loginCheck.userEmail) {
+              let res = navbar.removeChild(removeItem[i]);
+              console.log("removed children Email is....", res);
+            }
+
+            if (removeItem[i].innerText === "Logout") {
+              let LogoutRemove = navbar.removeChild(removeItem[i]);
+              console.log("removed Logout List is......", LogoutRemove);
+            }
+          }
+          //Add "LogIn"
+          var AddLoginList = document.createElement("li");
+          AddLoginList.setAttribute("class", "list");
+          AddLoginList.setAttribute("style", "cursor:pointer; list:hover{color: red;}");
+
+          AddLoginList.innerText = "Login";
+          navbar.appendChild(AddLoginList);
+
+          console.log("Added Login list in navbar.....", AddLoginList);
+
+          //Add SignUp
+          var AddSignupList = document.createElement("li");
+          AddSignupList.setAttribute("class", "list");
+          AddSignupList.setAttribute("style", "cursor:pointer; list:hover{color: red;}");
+
+          AddSignupList.innerText = "Signup";
+          navbar.appendChild(AddSignupList);
+          console.log("Added Signup list in navbar.....", AddSignupList);
+          //console.log("hi");
+        });
+      } else {
+
+        console.log("You are not login!");
+      }
+    }
+
+    function homePage(event) {
+
+      event.preventDefault();
+
+      let navbar = document.getElementById("fields");
+
+
+      if (event.target.innerText.trim() === "Products") { //trim() removes extra spaces
+        /*In JavaScript, objects and arrays are compared by reference, not by value. Even if loginCheck and storedData contain the same data, they are different objects in memory.*/
+        //if (JSON.stringify(loginCheck) !== JSON.stringify(storedData)) {
+        if (JSON.stringify(loginCheck) !== JSON.stringify(storedData)) {
+          /* {} !== {}  fails
+             data !== {} true*/
+          //products page
+          console.log("Ready to navigate to products page");
+          window.location.href = "Products.html";
+        } else {
+          //login page
+          console.log("No data Found in LoginTable");
+          window.location.href = "Login.html";
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

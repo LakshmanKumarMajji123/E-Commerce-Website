@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="./styles/login.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="shopping">
+        <a href="./index.html"><img src="./images/depositphotos_207138876-stock-photo-shop-now-isolated-premium-red.jpg"
+            alt="logoImg" class="shopNowLogo"></a>
+      </div>
+      <div id="fields">
+        <!-- <li class="list" id="productsPage"><a href="./Products.html" class="mens">Products</a></li> -->
+        <!-- <li class="list" id="productsPage"><a href="./Womens.html" class="Women's">Womens</a></li> -->
+        <!-- <li class="list" id="productsPage"><a href="./Login.html" class="Login">Login</a></li> -->
+        <li class="list" id="productsPage"><a href="./Signup.html" class="signup">Signup</a></li>
+      </div>
+    </div>
+  </header>
+
+
+
+  <div class="signup">
+    <!-- <img src="./images/Myntra-Logo.png" alt="signUpLogo" class="myntraSignUpLogo"> -->
+    <div class="signUpImage">
+      <img
+        src="./images/logotype-letter-login-logo-design-graphic-symbol-icon-sign-illustration-creative-idea-vector (1).jpg"
+        alt="signUpLogo2" class="myntraSignupLogo2">
+    </div>
+    <div class="signUpForm">
+
+      <form id="form">
+        <h3>Login Here</h3>
+        <div class="email">
+          <p class="labels">Email*</p>
+          <input type="email" class="inputFields" name="Email" placeholder="Username or Email">
+        </div>
+        <div class="password">
+          <p class="labels">Password*</p>
+          <input type="password" class="inputFields" name="Password" placeholder="Atleast 6 charcters">
+        </div>
+        <div class="submit">
+          <input type="submit" id="submit" class="btn btn-primary value=" Login" />
+        </div>
+
+        <p class="account">Forgot Password?<span class="login">Click here</span></p>
+      </form>
+      <!-- <p class="displayMessage"></p> -->
+       <h5></h5>
+    </div>
+  </div>
+
+
+  <script>
+
+    document.getElementById("form").addEventListener("submit", submitForm);
+
+    let loginArray = [];
+    //let loginArray = (localStorage.getItem("LoginRecord")) ? JSON.parse(localStorage.getItem("LoginRecord")) : [];
+
+    //let loginArray;
+    function submitForm(event) {
+
+      event.preventDefault();
+
+      //store the loginInfo in obj
+      let loginInfo = {
+        userEmail: form.Email.value,
+        userPassword: form.Password.value
+      };
+
+      loginArray.push(loginInfo);
+      //loginArray = loginInfo;
+      console.log("login Credentials :- ", loginArray);
+
+      form.reset();
+
+      //get the signIn records and compare it
+      let recordCheck = (localStorage.getItem("signupRecords")) ? JSON.parse(localStorage.getItem("signupRecords")) : [];
+      console.log(recordCheck);
+
+
+      loginArray.forEach((list, index) => {
+        let email;
+        let password;
+        for (let i = 0; i < recordCheck.length; i++) {
+
+
+          if (list.userEmail === recordCheck[i].userEmail) {
+            console.log(`Email ${list.userEmail} is Matched`);
+            email = list.userEmail;
+          }
+
+          if (list.userPassword === recordCheck[i].userPassword) {
+            console.log(`Password ${list.userPassword} is Matched`);
+            password = list.userPassword;
+          }
+
+        }
+        if (email && password) {
+          console.log("mathed u have account");
+          localStorage.setItem("loginRecord", JSON.stringify(list));
+          window.location.href = "index.html";
+        } else {
+          console.log("Not matched");
+          //window.location.href = "Signup.html";
+
+          // <p class="message">Please SignIn! You Don't have an Account!</p>
+         let message = document.querySelector("h5");
+         message.classList.add("displayMessage");
+         message.innerText = "Please SignUp! You Don't have an Account!";
+        }
+
+      });
+
+
+
+
+      //our reference
+      let r = JSON.parse(localStorage.getItem("loginRecord"));
+
+      for (let i in r) {
+        console.log(r[i]);
+      }
+
+      //console.log(loginArray);
+
+      // if (loginArray) {
+      //   //store in db
+      //   console.log(loginArray);
+      //   localStorage.setItem("LoginRecord", JSON.stringify(loginArray));
+      //   window.location.href = "index.html";
+      // }
+
+
+
+      /*
+      1. click on mens there is no record in the db so it will navigate to login page  
+      2. give credentials to login page it will save in db
+      3. redirect to index page we capture the index of record in login db
+      4. so we have record in logindb . when u click on mens it will navigate to mens page
+      5. when u click on logout record in db removed . so db is empty
+
+
+      after login those login index(id) will be captured on index page
+       after click on product database inside record is there so navigate to 
+       
+      */
+
+
+      //get the signIn records
+      // let signInArray = JSON.parse(localStorage.getItem("signupRecords"));
+      // console.log(signInArray);
+      // loginArray.forEach((list, index) => {
+
+      //   console.log(list.userEmail + " " + list.userPassword);
+
+      //   for (let i = 0; i < signInArray.length; i++) {
+
+      //     if ((list.userEmail && list.userPassword) == (signInArray[i].userEmail && signInArray[i].userPassword)) {
+
+      //       console.log(signInArray[i].userEmail + " " + signInArray[i].userPassword);
+
+      //       console.log("You Have an Account");
+      //       //loginArray(list);
+      //       window.location.href = "index.html";
+      //     } else {
+      //       console.log("Sorry! Plese SignIn. You dont have an 'Account!'");
+
+      //       //deleteRecord(list, index);
+      //     }
+      //   }
+      // });
+    }
+
+    // function deleteRecord(list, index) {
+
+    //   loginArray.splice(index, 1);
+
+    //   localStorage.setItem("LoginRecord", loginArray);
+
+    //   //window.location.href = "Signup.html";
+    // }
+  </script>
+
+</body>
+
+</html>
