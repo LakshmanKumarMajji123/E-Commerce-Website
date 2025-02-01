@@ -38,7 +38,7 @@
       font-weight: 800;
     }
 
-    #sortSalary{
+    #sortSalary {
       padding: 20px;
     }
   </style>
@@ -70,24 +70,19 @@
     <div class="content">
       <div class="sidebar">
         <h3>Price</h3>
-        <div class="form-check" onChange="handleSalarySort()" >
+        <div class="form-check" onclick="handleLowToHigh()">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="LTH">
           <label class="form-check-label" for="flexRadioDefault1">
             Low to High
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="HTL" checked>
+        <div class="form-check" onclick="handleHighToLow()">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="HTL"
+            checked>
           <label class="form-check-label" for="flexRadioDefault2">
             High to Low
           </label>
         </div>
-        <!-- <select id="sortSalary" class="form-select form-select-sm" aria-label=".form-select-sm example"
-          onChange="handleSalarySort()">
-          <option selected>Sort by Salary</option>
-          <option value="HTL">High-to-Low</option>
-          <option value="LTH">Low-to-High</option>
-        </select> -->
       </div>
       <div class="productsInfo">
 
@@ -104,7 +99,7 @@
               <p class="productBought">5K+ bought in past month</p>
             </div>
             <div class="two">
-              <p class="productPrice"><span class="price">$59,9999</span>&nbsp; M.R.P:<span
+              <p class="productPrice"><span class="price">₹59,9999</span>&nbsp; M.R.P:<span
                   style="text-decoration: line-through; color:gray"> &nbsp; 79000</span>&nbsp;(25% off)</p>
             </div>
             <div class="three">
@@ -124,6 +119,8 @@
   </div>
 
   <script>
+
+
 
     let Signup = JSON.parse(localStorage.getItem("signupRecords"));
 
@@ -219,7 +216,7 @@
         Image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlwaG9uZSUyMDE0fGVufDB8fDB8fHww",
         Title: "Apple iphone 15(128 GB) - Blue",
         Bought: "5K+ Bought in past month",
-        price: "$59,999",
+        price: "59999",
         MRP: "79000",
         Discount: "(25% off)",
         freedelivery: "Freedelivery Wed,29 Jan",
@@ -231,7 +228,7 @@
         Image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlwaG9uZSUyMDE0fGVufDB8fDB8fHww",
         Title: "Apple iphone 15(128 GB) - Pink",
         Bought: "5K+ Bought in past month",
-        price: "$59,999",
+        price: "59999",
         MRP: "69000",
         Discount: "(14% off)",
         freedelivery: "Freedelivery as soon as Sat,1 Feb, 9am - 5pm",
@@ -243,7 +240,7 @@
         Image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlwaG9uZSUyMDE0fGVufDB8fDB8fHww",
         Title: "Apple iphone 13(128 GB) - RED",
         Bought: "1K+ Bought in past month",
-        price: "$43,499",
+        price: "43499",
         MRP: "59,600",
         Discount: "(27% off)",
         freedelivery: "Freedelivery as soon as Thu,30Jan 9am - 5pm",
@@ -255,7 +252,7 @@
         Image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlwaG9uZSUyMDE0fGVufDB8fDB8fHww",
         Title: "Apple iphone 15(256 GB) - Green",
         Bought: "5K+ Bought in past month",
-        price: "$69,999",
+        price: "69999",
         MRP: "79,900",
         Discount: "(12% off)",
         freedelivery: "Free delivery as soon as Fri,31 Jan, 9am-pm",
@@ -267,7 +264,7 @@
         Image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlwaG9uZSUyMDE0fGVufDB8fDB8fHww",
         Title: "Apple iphone 16(128 GB) - 5G Mobile Phone with Camera Control",
         Bought: "5K+ Bought in past month",
-        price: "$74,900",
+        price: "74900",
         MRP: "79,000",
         Discount: "(6% off)",
         freedelivery: "Freedelivery Wed,29 Jan",
@@ -279,7 +276,7 @@
         Image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlwaG9uZSUyMDE0fGVufDB8fDB8fHww",
         Title: "Apple iphone 15(128 GB) - 5G Mobile Phone with Camera Control Blue",
         Bought: "5K+ Bought in past month",
-        price: "$74,000",
+        price: "74000",
         MRP: "79,000",
         Discount: "(6% off)",
         freedelivery: "Freedelivery Wed,29 Jan",
@@ -287,6 +284,29 @@
       }
     ];
 
+    displayData(productsInfo); //we pass the above products array as a arguments to display the each element in the array
+
+
+    /* sorting */
+    function handleLowToHigh() {
+        productsInfo.sort(function (a, b) {
+          return a.price - b.price;
+        });
+        let data = productsInfo;
+        displayData(data);
+    }
+
+    function handleHighToLow() {
+        productsInfo.sort(function(a, b){
+          return b.price - a.price;
+        });
+        displayData(productsInfo);
+    }
+
+
+
+
+    //let showModal = document.createElement("div");
     let count = document.querySelector(".cartCount");
 
     let cartArray = (localStorage.getItem("cartList")) ? JSON.parse(localStorage.getItem("cartList")) : [];
@@ -294,127 +314,124 @@
 
     let BoughtArray = (localStorage.getItem("purchaseListRecords")) ? JSON.parse(localStorage.getItem("purchaseListRecords")) : [];
     //let BoughtArray = [];
-    //show modal  
-    let showModal = document.createElement("div");
+    
+    function displayData(productsInfo) {
+      let product = document.querySelector(".productsInfo");
+      product.innerHTML = '';
 
-    let product = document.querySelector(".productsInfo");
-    product.innerHTML = '';
+      productsInfo.forEach((list, index) => {
+        //productsInfo.forEach((list, index) => {
 
-    productsInfo.forEach((list, index) => {
+        //whole product
+        let productDiv = document.createElement("div");
+        productDiv.classList.add("product");
 
-      //whole product
-      let productDiv = document.createElement("div");
-      productDiv.classList.add("product");
+        productDiv.innerHTML += "";
 
-      productDiv.innerHTML += "";
+        //Image
+        let productImg = document.createElement("div");
+        productImg.classList.add("productImg");
+        productImg.innerHTML = `<img src="./images/71d7rfSl0wL._AC_UL320_.jpg" class="Image" alt="productImg">`;
+        // productImg.innerText = (list.Image) ? list.Image : backupImage;
 
-      //Image
-      let productImg = document.createElement("div");
-      productImg.classList.add("productImg");
-      productImg.innerHTML = `<img src="./images/71d7rfSl0wL._AC_UL320_.jpg" class="Image" alt="productImg">`;
-      // productImg.innerText = (list.Image) ? list.Image : backupImage;
+        //productContent
+        let productContent = document.createElement("div");
+        productContent.classList.add("productContent");
+        productContent.innerHTML = "";
 
-      //productContent
-      let productContent = document.createElement("div");
-      productContent.classList.add("productContent");
-      productContent.innerHTML = "";
+        //One
+        let detailOne = document.createElement("div");
+        detailOne.classList.add("one");
+        detailOne.innerHTML = "";
 
-      //One
-      let detailOne = document.createElement("div");
-      detailOne.classList.add("one");
-      detailOne.innerHTML = "";
+        let productTitle = document.createElement("p");
+        productTitle.classList.add("productDetail");
+        productTitle.innerText = list.Title;
 
-      let productTitle = document.createElement("p");
-      productTitle.classList.add("productDetail");
-      productTitle.innerText = list.Title;
+        let productBought = document.createElement("p");
+        productBought.classList.add("productBought");
+        productBought.innerText = list.Bought;
 
-      let productBought = document.createElement("p");
-      productBought.classList.add("productBought");
-      productBought.innerText = list.Bought;
+        //Two
+        let detailTwo = document.createElement("div");
+        detailTwo.classList.add("two");
 
-      //Two
-      let detailTwo = document.createElement("div");
-      detailTwo.classList.add("two");
+        detailTwo.innerHTML =
+          `<p class="productPrice"><span class="price">₹${list.price}</span>&nbsp; M.R.P:<span
+            style="text-decoration: line-through; color:gray"> ${list.MRP}</span>&nbsp;${list.Discount}</p>`
 
-      detailTwo.innerHTML = `
-      <p class="productPrice">
-        <span class="price">${list.price}</span>
-        <span> M.R.P:<span
-            style="text-decoration: line-through; color:gray"> ${list.MRP}</span></span>
-            <span class="discount">${list.Discount}</span>
-            </p>
-            `;
+        //Three
+        let detailThree = document.createElement("div");
+        detailThree.classList.add("three");
+        detailThree.innerHTML = "";
 
-      //Three
-      let detailThree = document.createElement("div");
-      detailThree.classList.add("three");
-      detailThree.innerHTML = "";
+        //freedelivery
+        let freedelivery = document.createElement("p");
+        freedelivery.classList.add("productFreeDelivery");
 
-      //freedelivery
-      let freedelivery = document.createElement("p");
-      freedelivery.classList.add("productFreeDelivery");
+        let deliverySpan = document.createElement("span");
+        deliverySpan.classList.add("deliveryDate");
 
-      let deliverySpan = document.createElement("span");
-      deliverySpan.classList.add("deliveryDate");
+        freedelivery.innerHTML = `<span class="deliveryDate">${list.freedelivery}</span>`
 
-      freedelivery.innerHTML = `<span class="deliveryDate">${list.freedelivery}</span>`
+        //fastdelivery
+        let fastdelivery = document.createElement("p");
+        fastdelivery.classList.add("productFastestDelivery");
 
-      //fastdelivery
-      let fastdelivery = document.createElement("p");
-      fastdelivery.classList.add("productFastestDelivery");
+        fastdelivery.innerHTML = `<span class="deliveryDate">${list.fastdelivery}</span>`
 
-      fastdelivery.innerHTML = `<span class="deliveryDate">${list.fastdelivery}</span>`
+        //buttons
+        let buttons = document.createElement("div");
+        buttons.classList.add("buttons");
 
-      //buttons
-      let buttons = document.createElement("div");
-      buttons.classList.add("buttons");
+        buttons.innerHTML = "";
+        //buy button
+        let Buybutton = document.createElement("div");
+        Buybutton.classList.add("buyNow");
+        // Buybutton.innerText = "Buy Now";
 
-      buttons.innerHTML = "";
-      //buy button
-      let Buybutton = document.createElement("div");
-      Buybutton.classList.add("buyNow");
-      // Buybutton.innerText = "Buy Now";
+        Buybutton.innerHTML = "";
+        let navigate = document.createElement("a");
+        navigate.setAttribute("href", "#modal");
+        navigate.setAttribute("class", "open-modal");
+        navigate.innerText = "Buy Now";
+        Buybutton.append(navigate);
 
-      Buybutton.innerHTML = "";
-      let navigate = document.createElement("a");
-      navigate.setAttribute("href", "#modal");
-      navigate.setAttribute("class", "open-modal");
-      navigate.innerText = "Buy Now";
-      Buybutton.append(navigate);
-
-      //cart button
-      let Cartbutton = document.createElement("div");
-      Cartbutton.classList.add("cart");
-      Cartbutton.innerText = "Add to Cart";
+        //cart button
+        let Cartbutton = document.createElement("div");
+        Cartbutton.classList.add("cart");
+        Cartbutton.innerText = "Add to Cart";
 
 
-      //appends
-      detailOne.append(productTitle, productBought);
-      detailThree.append(freedelivery, fastdelivery);
-      buttons.append(Buybutton, Cartbutton);
+        //appends
+        detailOne.append(productTitle, productBought);
+        detailThree.append(freedelivery, fastdelivery);
+        buttons.append(Buybutton, Cartbutton);
 
-      productContent.append(detailOne, detailTwo, detailThree, buttons, showModal);
-      productDiv.append(productImg, productContent);
-      product.append(productDiv);
+        productContent.append(detailOne, detailTwo, detailThree, buttons);  //, showModal
+        productDiv.append(productImg, productContent);
+        product.append(productDiv);
 
 
-      Buybutton.addEventListener("click", () => {
+        Buybutton.addEventListener("click", () => {
 
-        console.log(list.id);
-        ShowItemModal(list, index);
-        //BougthItem(list, index);
+          console.log(list.id);
+          ShowItemModal(list, index);
+          //BougthItem(list, index);
+        });
+
+        Cartbutton.addEventListener("click", () => {
+
+          cartDetails(list, index);
+        });
+
       });
+    }
 
-      Cartbutton.addEventListener("click", () => {
-
-        cartDetails(list, index);
-      });
-
-    });
-
-
+    //show modal
     function ShowItemModal(list, index) {
 
+      let showModal = document.createElement("div");
       console.log(`index ----${index} . ${list}`);
       showModal.setAttribute("id", "modal");
       showModal.setAttribute("class", "modal");
@@ -509,7 +526,7 @@
       // TotPrice.innerText = list.price - list.Discount;
       let discountValue = parseFloat(list.Discount.replace("%", '')) / 100 * list.MRP;
       TotPrice.innerText = list.MRP - discountValue;
-      console.log(TotPrice.innerText);
+      //console.log(TotPrice.innerText);
 
       finalAmmount.append(Tot, TotPrice);
 
@@ -532,6 +549,7 @@
       productDiscount.append(discountTittle, discount);
       modalContent.append(closeIcon, invoice, productInfo, productDiscount, finalAmmount, Paymentbutton);
       showModal.append(modalContent);
+      document.body.appendChild(showModal);  //we append the modal(showModal) in the document.body
 
 
       Paymentbutton.addEventListener("click", () => {
