@@ -13,32 +13,51 @@
 
 <body>
 
-  <div class="container">
 
-    <div class="header">
-      <div class="navbar">
-        <div class="shopping">
-          <a href="./index.html">
-            <img src="./images/depositphotos_207138876-stock-photo-shop-now-isolated-premium-red.jpg" alt="logoImg"
-              class="shopnowLogo">
-          </a>
-        </div>
-        <div id="fields">
-          <li class="list" id="productsPage"><a href="./Products.html" class="mens">Products</a></li>
-          <!-- <li class="list" id="productsPage"><a href="./Womens.html" class="Women's">Womens</a></li> -->
-          <li class="list" id="productsPage"><a href="./Login.html" class="Login">Login</a></li>
-          <li class="list" id="productsPage"><a href="./Signup.html" class="signup">Signup</a></li>
-        </div>
-        <div>
-          <!-- <p class="cartCount">0</p> -->
-          <a href="./Cart.html" class="cartProuducts"><img src="./images/grocery-store.png" alt=""
-              class="cartLogo">Cart[<span class="cartCount">0</span>]</a>
-        </div>
+
+  <div class="header">
+    <div class="navbar">
+      <div class="shopping">
+        <a href="./index.html">
+          <img src="./images/depositphotos_207138876-stock-photo-shop-now-isolated-premium-red.jpg" alt="logoImg"
+            class="shopnowLogo">
+        </a>
+      </div>
+      <div id="fields">
+        <li class="list" id="productsPage"><a href="./Products.html" class="mens">Products</a></li>
+        <li class="list" id="productsPage"><a href="./Login.html" class="Login">Login</a></li>
+        <li class="list" id="productsPage"><a href="./Signup.html" class="signup">Signup</a></li>
+      </div>
+      <div>
+        <!-- <p class="cartCount">0</p> -->
+        <a href="./Cart.html" class="cartProuducts"><img src="./images/grocery-store.png" alt=""
+            class="cartLogo">Cart[<span class="cartCount">0</span>]</a>
       </div>
     </div>
+  </div>
 
+  <div class="container">
 
+    <div class="sidebar"
+      style="background-color:#ffff; width: 250px; margin-top: 155px; position:fixed; left:0; top:0; bottom: 0;">
 
+      <div class="productsAsPerPrice"
+        style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; margin: 100px 0px;">
+
+        <div class="selectedProduct">
+          <h1 style="font-size: 30px;">Products</h1>
+          <!--dynamically added-->
+        </div>
+        <div class="productsPrize">
+          <h1 style="font-size: 30px;">Price</h1>
+          <!--dynamically added-->
+        </div>
+      </div>
+      <hr>
+      <div class="SelectedProductTotPrice" style="padding: 10px 50px; font-size: 22px; font-weight: bold;">
+      </div>
+      <hr>
+    </div>
 
 
     <div class="productsInfo">
@@ -155,6 +174,28 @@
     count.innerText = cartList.length;
     console.log(cartList.length);
 
+    /* cart total products price*/
+    let productSelect = document.querySelector(".selectedProduct");
+    let productSelectPrize = document.querySelector(".productsPrize");
+    let totalproductCount = document.querySelector(".SelectedProductTotPrice");
+
+    let productCount = 0;
+    cartList.forEach((product, index) => {
+
+      productSelect.innerHTML += `
+
+          <div style="font-size: 25px; padding: 7px 0px;">product - <span style="font-weight:bold; color: red;">${product.id}</span></div>
+      `;
+      productSelectPrize.innerHTML += `
+          <div style="font-size: 25px; padding: 7px 0px; font-weight: bold;">${product.price}</div>
+      `;
+
+      productCount = Number(productCount) + Number(product.price);
+      console.log(`index- ${product.id}`, "total products price is", productCount);
+      totalproductCount.innerText = `Total :- ${productCount}`;
+    });
+
+
     let BoughtArray = (localStorage.getItem("purchaseListRecords")) ? JSON.parse(localStorage.getItem("purchaseListRecords")) : [];
 
     //show modal  
@@ -199,7 +240,7 @@
       detailTwo.classList.add("two");
 
       detailTwo.innerHTML = `<p class="productPrice"><span class="price">${list.price}</span>&nbsp; M.R.P:<span
-            style="text-decoration: line-through; color:gray"> ${list.MRP}</span>&nbsp;${list.Discount}</p>`
+            style="text-decoration: line-through; color:gray"> ${list.MRP}</span>&nbsp;${list.Discount} off</p>`
 
       //Three
       let detailThree = document.createElement("div");
@@ -330,7 +371,7 @@
       //item price
       let price = document.createElement("p");
       price.classList.add("productPrice");
-      price.innerText = list.price;
+      price.innerText = list.MRP;
 
       itemInfo.append(title, price);
 
@@ -371,15 +412,7 @@
       //Paymentbutton
       let Paymentbutton = document.createElement("div");
       Paymentbutton.classList.add("payment");
-
-      Paymentbutton.innerHTML = "";
-
-      let Paymentanchor = document.createElement("a");
-      Paymentanchor.classList.add("paymentButton")
-      Paymentanchor.href = "PaymentForm.html";
-      Paymentanchor.innerText = "Proceed to Payment";
-
-      Paymentbutton.append(Paymentanchor);
+      Paymentbutton.innerText = "Proceed to Payment";
 
       // productDiscount.append(div);
       invoice.append(heading, date);
@@ -392,7 +425,15 @@
       Paymentbutton.addEventListener("click", () => {
         BoughtArray.push(list);
         localStorage.setItem("purchaseListRecords", JSON.stringify(BoughtArray));
-        removeProduct(list);
+
+        Paymentbutton.classList.remove("payment");
+        Paymentbutton.classList.add("paymentSuccess");
+        Paymentbutton.innerText = "Your Payment is Success ThankYou! visit Again";
+
+        setTimeout(() => {
+          removeProduct(list);
+        }, 2000);
+
       });
 
     }

@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-commerce</title>
   <link rel="stylesheet" href="./styles/header.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 
   <style>
     * {
@@ -18,6 +21,10 @@
 
     :root {
       --box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    .shopnowcom:hover {
+      color: red;
     }
 
     /* .signup {
@@ -116,27 +123,63 @@
     </div>
   </header>
 
-
-  <!-- <div class="signUpForm">
-
-    <form id="form">
-      <h3>Login Here</h3>
-      <div class="email">
-        <p class="labels">Email<span style="color:red; font-weight: bold; font-size: 35px;">*</span></p>
-        <input type="email" class="inputFields" name="Email" placeholder="Username or Email">
+  <main>
+    <!--Carousel-->
+    <div class="container-fluid w-100">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img style="height: 680px;"
+              src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?cs=srgb&dl=pexels-jessbaileydesign-788946.jpg&fm=jpg"
+              class="d-block w-100 p-3" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img style="height: 680px;" src="https://cdn.britannica.com/09/241709-050-149181B1/apple-iphone-11-2019.jpg"
+              class="d-block w-100 p-3" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img style="height: 680px;"
+              src="https://images.unsplash.com/photo-1606041011872-596597976b25?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXBwbGUlMjBpcGhvbmV8ZW58MHx8MHx8fDA%3D"
+              class="d-block w-100 p-3" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <div class="password">
-        <p class="labels">Password<span style="color:red; font-weight: bold; font-size: 35px;">*</span></p>
-        <input type="password" class="inputFields" name="Password" placeholder="Atleast 6 charcters">
-      </div>
-      <div class="submit">
-        <input type="submit" id="submit" class="btn btn-primary value=" Login" />
-      </div>
+    </div>
 
-      <p class="account">Forgot Password?<span class="login">Click here</span></p>
-    </form>
-  <h5></h5>
-  </div>  -->
+
+    <!--footer-->
+    <div class="footer w-100 p-2 mt-4"
+      style="background-color: #082642; color:white; text-align: center; font-size: 32px;">
+      <h1 style="font-weight: bold; cursor: pointer;">Shop Now</h1>
+      <div class="footerbar d-flex flex-row justify-content-center mt-3" style="font-size: 20px;">
+        <p class="px-3">Conditions of Use & Sale </p>
+        <p class="px-3">Privacy Notice</p>
+        <p class="px-3">Interested-Based Ads</p>
+      </div>
+      <p class="" style="font-size: 18px;">© 1996-2025, <span class="shopnowcom"
+          style="text-decoration: underline; cursor: pointer;">ShopNow.com</span>, Inc. or its affiliates</p>
+    </div>
+
+
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  </script>
 
   <script>
 
@@ -209,7 +252,7 @@
         //when click on Logout record will be deleted in LS
         addLogout.addEventListener("click", (event) => {
           event.preventDefault();
-
+           alert("Click OK LogOut!");
           localStorage.removeItem("loginRecord");
 
           var emptyArray = [];

@@ -294,15 +294,40 @@
   font-weight: bold;
   padding: 20px 0px;
   padding-left: 190px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: green;
 }
 
 .payment {
-  margin: 40px 180px;
+  /* margin: 40px 180px; */
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: bisque;
+  color: black;
+  text-align: center;
+  margin: 0px 120px;
+  cursor: pointer;
 }
 
-.paymentButton {
+.paymentSuccess{
+
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color:lawngreen;
+  color: black;
+  text-align: center;
+  margin: 30px 20px;
+  cursor: pointer;
+
+ }
+
+/* .paymentButton {
   text-decoration: none;
   padding: 10px 10px;
   font-size: 25px;
@@ -314,7 +339,7 @@
   margin: 0px 1px;
   cursor: pointer;
 
-}
+} */
 
 .close-button{
   text-decoration: none;
@@ -332,7 +357,7 @@
 
  .remove {
    margin: 10px 10px;
-   background-color: red;
+   background-color: rgb(245, 0, 0);
    color: black;
    font-size: 20px;
    font-weight: 600;
